@@ -1,11 +1,10 @@
-import './App.css';
+import { Layout } from './components/Layout';
+import { ETable } from './components/ETable';
 
-function App() {
+export const App = () => {
   return (
-    <div className='App'>
-      <header className='App-header'>dfgd</header>
-    </div>
+    <Layout>
+      <ETable />
+    </Layout>
   );
-}
-
-export default App;
+};
