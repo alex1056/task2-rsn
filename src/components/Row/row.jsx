@@ -1,6 +1,4 @@
 import { useState, useCallback } from 'react';
-import s from './row.module.scss';
-import cn from 'classnames';
 import { Cell } from '../Cell';
 
 const Row = (props) => {

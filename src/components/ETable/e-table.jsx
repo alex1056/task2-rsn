@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import s from './e-table.module.scss';
 import { Row } from '../Row';
 import { connector } from './container';
@@ -12,7 +12,7 @@ const ETable = (props) => {
     loadTableData();
   }, []);
 
-  const removeRow = (id) => {
+  const removeRow = useCallback((id) => {
     fetch(API_URL + `id=${encodeURI(id)}`, {
       method: 'DELETE',
     })
@@ -24,7 +24,7 @@ const ETable = (props) => {
       })
       .then((result) => console.log('Ответ сервера =', result))
       .catch((err) => console.log('Ответ с ошибкой', err));
-  };
+  }, []);
 
   const updateRow = ({ id, name, age, phone, email }) => {
     const searchParams = new URLSearchParams({ id, name, age, phone, email });
