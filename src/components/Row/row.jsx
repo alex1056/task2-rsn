@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import s from './row.module.scss';
 import cn from 'classnames';
 import { Cell } from '../Cell';
@@ -19,27 +19,33 @@ const Row = (props) => {
     rowKey: null,
   });
 
-  const onEdit = ({ id, cellValues }) => {
-    setInEditMode({
-      status: true,
-      rowKey: id,
-    });
-    setCellValues(cellValues);
-  };
+  const onEdit = useCallback(
+    ({ id, cellValues }) => {
+      setInEditMode({
+        status: true,
+        rowKey: id,
+      });
+      setCellValues(cellValues);
+    },
+    [id, cellValues],
+  );
 
-  const onSave = (cellValues) => {
-    updateRow({
-      id: cellValues.id,
-      name: cellValues.name,
-      age: cellValues.age,
-      phone: cellValues.phone,
-      email: cellValues['e-mail'],
-    });
-    setInEditMode({
-      status: false,
-      rowKey: null,
-    });
-  };
+  const onSave = useCallback(
+    (cellValues) => {
+      updateRow({
+        id: cellValues.id,
+        name: cellValues.name,
+        age: cellValues.age,
+        phone: cellValues.phone,
+        email: cellValues['e-mail'],
+      });
+      setInEditMode({
+        status: false,
+        rowKey: null,
+      });
+    },
+    [cellValues],
+  );
 
   return (
     <tr>

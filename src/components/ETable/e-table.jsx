@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import s from './e-table.module.scss';
-import { Button } from '../Button';
 import { Row } from '../Row';
 import { connector } from './container';
 import { API_URL } from '../../config';
