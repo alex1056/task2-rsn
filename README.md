@@ -5,7 +5,7 @@
 - React
 - Redux
 - JavaScript
-- CSS (Saas)
+- CSS(Saas)
 - HTML
 
 **Запуск приложения**
